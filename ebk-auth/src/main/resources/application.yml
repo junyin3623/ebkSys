@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/jwt
+    driver-class-name: com.mysql.jdbc.Driver
+  session:
+    store-type: redis
+  redis:
+    host: localhost
+    port: 6379
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: ebkauth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+logging:
+  level:
+    com.gong.gulimall.product: debug
+
+server:
+  port: 10000
+  servlet:
+    session:
+      timeout: 30m
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.ebkproject.ebkauth.entity
+
+eureka:
+  client:
+    #表示是否将自己注册进EurekaServer默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    service-url:
+      #单机版
+      defaultZone: http://localhost:7001/eureka
+

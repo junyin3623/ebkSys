@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ebk</groupId>
+    <artifactId>ebkcenter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ebkcenter</name>
+    <description>聚合服务</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>ebk-common</module>
+        <module>ebk-trade</module>
+        <module>ebk-auth</module>
+        <module>ebk-eureka</module>
+
+    </modules>
+
+
+    <!--    因为每次启动微服务，common模块都会jdk变回1.5，这里引入一下插件来解决这个问题-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
